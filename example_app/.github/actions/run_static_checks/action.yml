@@ -1,0 +1,20 @@
+name: "Run Static Checks"
+description: "Run static checks for the python app"
+runs:
+  using: "composite"
+  steps:
+    - name: Check common sense security issues
+      run: python3 -m pipenv run bandit -r graviton2_gh_runner_flask_app/
+      shell: bash
+    - name: Check Cyclomatic Complexity
+      run: python3 -m pipenv run flake8 --max-complexity 10 graviton2_gh_runner_flask_app
+      shell: bash
+    - name: Check for dead code
+      run: python3 -m pipenv run vulture graviton2_gh_runner_flask_app --min-confidence 100
+      shell: bash
+    - name: Check static types
+      run: python3 -m pipenv run mypy graviton2_gh_runner_flask_app
+      shell: bash
+    - name: Check for CVEs
+      run: python3 -m pipenv check
+      shell: bash

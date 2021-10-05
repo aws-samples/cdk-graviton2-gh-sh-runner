@@ -1,0 +1,22 @@
+[
+    {
+        "IndexName": "gsi1",
+        "KeySchema": [
+            {
+                "AttributeName": "gsi1_pk",
+                "KeyType": "HASH"
+            },
+            {
+                "AttributeName": "gsi1_sk",
+                "KeyType": "RANGE"
+            }
+        ],
+        "Projection": {
+            "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 2,
+            "WriteCapacityUnits": 2
+        }
+    }
+]
