@@ -1,0 +1,18 @@
+name: "Check System Deps"
+description: "Check for Python 3.x, list version, Install pipenv if it isnt installed"
+runs:
+  using: "composite"
+  steps:
+    - name: Check For Python3.x
+      run: |
+        which python3
+        VERSION=$(python3 --version | cut -d ' ' -f 2)
+        VERSION_PATCH=$(echo ${VERSION} | cut -d '.' -f 2)
+        [ $VERSION_PATCH -ge 8 ]
+      shell: bash
+    - name: List python version
+      run: python3 --version
+      shell: bash
+    - name: Install Pipenv
+      run: python3 -m pip install pipenv --user
+      shell: bash

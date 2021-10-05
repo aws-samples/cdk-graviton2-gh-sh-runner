@@ -1,0 +1,8 @@
+name: "Run Unit Tests"
+description: "Run unit tests for python app"
+runs:
+  using: "composite"
+  steps:
+    - name: Run PyTest
+      run: python3 -m pipenv run pytest -sv tests
+      shell: bash

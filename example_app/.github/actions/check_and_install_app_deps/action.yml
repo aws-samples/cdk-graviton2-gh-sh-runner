@@ -1,0 +1,8 @@
+name: "Install deps"
+description: "Install application dependencies"
+runs:
+  using: "composite"
+  steps:
+    - name: Install deps
+      run: python3 -m pipenv install --dev
+      shell: bash
