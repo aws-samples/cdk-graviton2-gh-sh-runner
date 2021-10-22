@@ -19,7 +19,7 @@ Next, launch an AWS CloudShell environment, and create the following AWS SSM Par
 
 ```bash
 aws ssm put-parameter --name gh-token --type SecureString --value ABCDEFGHIJKLMNOPQRSTUVWXYZABC
-aws ssm put-parameter --name gh-url --type String --value https://github.com/your/repository
+aws ssm put-parameter --name gh-url --type String --value https://github.com/your/organization
 ```
 
 ## Installation and Deployment
